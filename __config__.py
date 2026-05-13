@@ -6,12 +6,6 @@ from dotenv import load_dotenv
 load_dotenv(Path(__file__).parent / '.env')
 
 class CONFIGURATION:
-    CACHEPATH = 'media'
-
-    CHUNK_SIZE = 512
-
-    JWT_KEY = "crimsonmoonshinesuponatownthatissmearedinblood-criedthedivagivenintolament"
-
     HOST = getenv("LYPAY_CORE_HOST")
     PORT = int(getenv("LYPAY_CORE_PORT"))
     TOKEN = getenv("LYPAY_CORE_TOKEN") if getenv("LYPAY_CORE_TOKEN") != '' else None
