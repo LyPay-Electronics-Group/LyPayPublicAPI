@@ -22,7 +22,7 @@ async def get(chequeID: str) -> dict[str, ...]:
 
     async with create_session() as session:
         async with session.get(
-                f"{CONFIGURATION.HOST}:{CONFIGURATION.PORT}/store/cheques/get",
+                f"{CONFIGURATION.API_HOST}/store/cheques/get",
                 params={"chequeID": chequeID}
         ) as response:
             json = await response.json()
