@@ -24,7 +24,7 @@ async def status(ID: str) -> dict[str, ...]:
 
     async with create_session() as session:
         async with session.get(
-                f"{CONFIGURATION.API_HOST}/fps/status",
+                f"{CONFIGURATION.PROXY}/fps/status",
                 params={"ID": ID}
         ) as response:
             json = await response.json()

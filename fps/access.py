@@ -21,7 +21,7 @@ async def new(*, description: str | None = None, amount: int, author: str | int)
 
     async with create_session() as session:
         async with session.get(
-                f"{CONFIGURATION.API_HOST}/fps/new",
+                f"{CONFIGURATION.PROXY}/fps/new",
                 params=payload,
         ) as response:
             json = await response.json()
@@ -42,7 +42,7 @@ async def cancel(ID: str) -> None:
 
     async with create_session() as session:
         async with session.get(
-                f"{CONFIGURATION.API_HOST}/fps/cancel",
+                f"{CONFIGURATION.PROXY}/fps/cancel",
                 params={'ID': ID}
         ) as response:
             if response.status >= 400:

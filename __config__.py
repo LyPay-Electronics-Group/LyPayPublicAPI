@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv(Path(__file__).parent / '.env')
 
 class CONFIGURATION:
-    API_HOST = getenv("LYPAY_CORE_HOST")
+    PROXY = getenv("LYPAY_CORE_PROXY")
     TOKEN = getenv("LYPAY_CORE_TOKEN") if getenv("LYPAY_CORE_TOKEN") != '' else None
 
     SSL = ssl_create_default_context()
@@ -16,4 +16,4 @@ class CONFIGURATION:
 
 VERSION = "v2.6p"
 NAME = "Public API"
-BUILD = 24
+BUILD = 21
