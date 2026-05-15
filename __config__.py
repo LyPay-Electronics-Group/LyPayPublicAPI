@@ -6,8 +6,7 @@ from dotenv import load_dotenv
 load_dotenv(Path(__file__).parent / '.env')
 
 class CONFIGURATION:
-    HOST = getenv("LYPAY_CORE_HOST")
-    PORT = int(getenv("LYPAY_CORE_PORT"))
+    API_HOST = getenv("LYPAY_CORE_HOST")
     TOKEN = getenv("LYPAY_CORE_TOKEN") if getenv("LYPAY_CORE_TOKEN") != '' else None
 
     SSL = ssl_create_default_context()
