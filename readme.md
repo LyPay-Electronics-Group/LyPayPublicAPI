@@ -8,7 +8,7 @@
 <img src="https://img.shields.io/badge/fastapi-109989?style=for-the-badge&logo=FASTAPI&logoColor=white" alt="FastAPI">
 <img src="https://img.shields.io/badge/Sqlite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite3">
 <br>
-<img src="https://img.shields.io/badge/version-2.5a-blue" alt="version-2.5">
+<img src="https://img.shields.io/badge/version-2.6p-blue" alt="version-2.6">
 
 </div>
 
