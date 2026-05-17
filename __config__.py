@@ -14,6 +14,7 @@ class CONFIGURATION:
     SSL.verify_mode = CERT_NONE
 
 
-VERSION = "v2.6p"
+
+VERSION = "v2.6.1p"
 NAME = "Public API"
-BUILD = 21
+BUILD = 21.1
