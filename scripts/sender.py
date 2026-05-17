@@ -37,7 +37,7 @@ class CustomSession(ClientSession):
         elif self._extra_params:
             kwargs['params'] = self._extra_params.copy()
 
-        return await super()._request(method, url, **kwargs)
+        return await super()._request(method, url, headers=CONFIGURATION.HEADERS, **kwargs)
 
 
 def create_session():
