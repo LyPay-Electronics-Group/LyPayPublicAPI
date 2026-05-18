@@ -53,6 +53,8 @@ class APIError(Exception):
 
         elif json['message'] == 'login not found':
             return LoginNotFound(method, response, json)
+        elif json['message'] == 'login already exists':
+            return LoginAlreadyExists(method, response, json)
 
         elif json['message'] == 'not enough balance':
             return NotEnoughBalance(method, response, json)
@@ -69,13 +71,16 @@ class APIError(Exception):
 
         elif json['message'] == 'bad censor flag: store name':
             return InvalidStoreName(method, response, json)
-        elif json['message'] == 'bad censor flag: desc':
+        elif json['message'] == 'bad censor flag: store desc':
             return InvalidStoreDescription(method, response, json)
 
         elif json['message'] == 'bad censor flag: store item name':
             return InvalidStoreItemName(method, response, json)
         elif json['message'] == 'bad censor flag: store item price':
             return InvalidStoreItemPrice(method, response, json)
+
+        elif json['message'] == 'bad censor flag: FPS desc':
+            return InvalidFPSDescrition(method, response, json)
 
         elif json['message'] == 'link email not found':
             return RegistrationEmailNotFound(method, response, json)
@@ -90,7 +95,7 @@ class APIError(Exception):
             return BadFireWallCheck(method, response, json)
 
         elif json['message'] == 'user is already a shopkeeper':
-            return UserIsAlreadyShopkeeper(method, response, json)
+            return UserIsAlreadyAShopkeeper(method, response, json)
 
         return cls(method, response, json)
 
@@ -113,6 +118,11 @@ class LoginNotFound(APIError):
 class IDAlreadyExists(APIError):
     def __str__(self):
         return super().form_str_message("ID уже существует")
+
+
+class LoginAlreadyExists(APIError):
+    def __str__(self):
+        return super().form_str_message("пользователь с таким логином уже существует")
 
 
 class BadRequest(APIError):
@@ -165,6 +175,11 @@ class InvalidStoreItemName(APIError):
         return super().form_str_message("название айтема не прошло проверку")
 
 
+class InvalidFPSDescrition(APIError):
+    def __str__(self):
+        return super().form_str_message("описание FPS-линка не прошло проверку")
+
+
 class InvalidStoreItemPrice(APIError):
     def __str__(self):
         return super().form_str_message("цена айтема некорректна")
@@ -190,6 +205,6 @@ class BadFireWallCheck(APIError):
         return super().form_str_message("запрос не прошёл проверку файерволла")
 
 
-class UserIsAlreadyShopkeeper(APIError):
+class UserIsAlreadyAShopkeeper(APIError):
     def __str__(self):
         return super().form_str_message("пользователь уже имеет доступ к какому-то магазину")
